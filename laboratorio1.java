@@ -30,12 +30,16 @@ public class laboratorio1 {
         cp5 = "P05"; np5 = "CHILE(4OZ)";c5 = 3; p5 = 47.50; g5 = true;
     
     //output
+        System.out.println("================================================="); 
+        System.out.println("COD\tPRODUCTO   CANTIDAD\tPRECIO\t\tGRABABILIDAD"); 
+        System.out.println("================================================="); 
         System.out.println(cp1+"\t"+np1+"\t\t"+c1+"\t"+p1+"\t"+"\t"+g1); //espaciado x2 con \t\t
         System.out.println(cp2+"\t"+np2+"\t\t"+c2+"\t"+p2+"\t"+"\t"+g2); //espaciado x2 con \t\t
         System.out.println(cp3+"\t"+np3+"\t"  +c3+"\t"+p3+"\t"+"\t"+g3);
         System.out.println(cp4+"\t"+np4+"\t\t"+c4+"\t"+p4+"\t"+"\t"+g4); //espaciado x2 con \t\t
         System.out.println(cp5+"\t"+np5+"\t"  +c5+"\t"+p5+"\t"+"\t"+g5);
-        
+        System.out.println("================================================="); 
+
         
         /*
             para que la tabla este completamente pareja, aplicamos un tab
