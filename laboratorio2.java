@@ -71,6 +71,8 @@ public class Repaso2 {
             En los decimales, el numero despues del punto determina cuantos 
             digitos decimales utilizaremos en este caso "2" para que nos 
             retorne eje. 12.50
+
+            Un 1Tab enquivale a 8 espacios habitualmente 
          
             **NOTA**
             Si no hacemos el salto de linea al final de un format el output 
