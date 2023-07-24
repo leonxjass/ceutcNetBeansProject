@@ -8,7 +8,7 @@
  *
  * @author pc
  */
-public class Repaso2 {
+public class ifCondicional {
     
     public static void main(String[] args){
     
