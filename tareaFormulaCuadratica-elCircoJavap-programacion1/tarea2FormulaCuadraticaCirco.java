@@ -37,7 +37,7 @@ public class tarea2 {
                     "\nx \t y");
         
         for(int x = - 7; x <= 5; x++){
-            y = x*x + 2*x - -c;
+            y = x*x + 2*x - c;
             System.out.println(x + "\t" + y);
         }
         
