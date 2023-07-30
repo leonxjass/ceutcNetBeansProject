@@ -6,7 +6,7 @@ package com.mycompany.algorithmiaejer;
 
 /**
  *
- * @author leonj
+ * @author pc
  */
 public class tarea2 {
     public static void formulacuadratica(int a, int b, int c){
