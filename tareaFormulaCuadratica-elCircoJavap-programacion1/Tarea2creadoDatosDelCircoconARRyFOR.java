@@ -78,8 +78,7 @@ public class tarea2 {
         int ttm = tm1+tm2+tm3+tm4+tm5;
         int tth = th1+th2+th3+th4+th5;
        
-        int n1,n2,n3,n4,n5,n6,n7,n8;
-        n1=1;n2=2;n3=3;n4=4;n5=5;n6=6;n7=7;n8=8;
+        int n1=1;int n2=2;int n3=3;int n4=4;int n5=5;int n6=6;int n7=7;int n8=8;
         
         //encapsulamos los resultados para que lo lea un for y hacer solo 1 Sys
         int arrbn[] = {bn1,bn2,bn3,bn4,bn5};
