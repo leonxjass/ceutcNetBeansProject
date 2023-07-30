@@ -32,7 +32,7 @@ public class tarea2 {
             System.out.println("No hay solucion\n");
         }
             
-        //imprimimos tabla grafica de x1 & x2    
+        //imprimimos tabla grafica de x & y    
         System.out.println("\nGrafico de la funcion" + 
                     "\nx \t y");
         
