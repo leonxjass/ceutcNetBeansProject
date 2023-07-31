@@ -6,6 +6,6 @@ laboratorio inicio de clases, archivo 1. imprimiendo datos, println(), atajo "So
 ifCondicionales, optimizamos y creamos nuestro primer comentario
 laboratorio 1, lo terminamos e implementamos condicionales
 laboratorio 2, renovamos el lab1 e implementamos formatos
-Hacemos nuestra primer tarea formulaCuadratica y el circo
+29/07 Hacemos nuestra primer tarea formulaCuadratica y el circo
 31/07 vemos arreglos y como usar metodos en JAVA 
 */
