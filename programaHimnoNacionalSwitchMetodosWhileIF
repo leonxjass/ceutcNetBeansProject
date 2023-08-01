@@ -1,0 +1,173 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.algorithmiaejer;
+import java.util.Scanner;
+/**
+ *
+ * @author leonj
+ */
+public class HimnoConArrSwicht {
+    
+    public static void coro(){
+        System.out.println("\nCoro\n" +
+        "\nTu bandera es un lampo de cielo\n" +
+        "por un bloque de nieve cruzado;\n" +
+        "y se ven en su fondo sagrado\n" +
+        "cinco estrellas de pálido azul;\n" +
+        "en tu emblema, que un mar rumoroso\n" +
+        "con sus ondas bravías escuda,\n" +
+        "de un volcán, tras la cima desnuda\n" +
+        "hay un astro de nítida luz.\n");
+    }
+    public static void estrofa1(){
+        System.out.println("I\n" +
+        "\nIndia virgen y hermosa dormías\n" +
+        "de tus mares al canto sonoro,\n" +
+        "cuando echada en tus cuencas de oro\n" +
+        "el audaz navegante te halló;\n" +
+        "y al mirar tu belleza extasiado,\n" +
+        "al influjo ideal de tu encanto,\n" +
+        "la orla azul de tu espléndido manto\n" +
+        "con su beso de amor consagró.");
+        coro();
+    }
+    public static void estrofa2(){
+        System.out.println("II\n" +
+        "De un país donde el sol se levanta,\n" +
+        "más allá del atlante azulado,\n" +
+        "aquel hombre te había soñado\n" +
+        "y en tu busca a la mar se lanzó.\n" +
+        "Cuando erguiste la pálida frente,\n" +
+        "en la viva ansiedad de tu anhelo,\n" +
+        "bajo el dombo gentil de tu cielo\n" +
+        "ya flotaba un extraño pendón.");
+        coro();
+    }
+    public static void estrofa3(){
+        System.out.println("III\n" +
+        "Era inútil que el indio tu amado,\n" +
+        "se aprestara a la lucha con ira,\n" +
+        "porque envuelto en su sangre Lempira\n" +
+        "en la noche profunda se hundió;\n" +
+        "y de la épica hazaña, en memoria,\n" +
+        "la leyenda tan sólo ha guardado\n" +
+        "de un sepulcro el lugar ignorado\n" +
+        "y el severo perfil de un peñón.");
+        coro();
+    }
+    public static void estrofa4(){
+        System.out.println("IV\n" +
+        "Por tres siglos tus hijos oyeron\n" +
+        "el mandato imperioso del amo;\n" +
+        "por tres siglos tu inútil reclamo\n" +
+        "en la atmósfera azul se perdió;\n" +
+        "pero un día gloria tu oído\n" +
+        "percibió, poderoso y distante\n" +
+        "que allá lejos, por sobre el atlante\n" +
+        "indignado rugía un león.");
+        coro();
+    }
+    public static void estrofa5(){
+        System.out.println("V\n" +
+        "Era Francia, la libre, la heroica,\n" +
+        "que en su sueño de siglos dormida\n" +
+        "despertaba iracunda a la vida\n" +
+        "al reclamo viril de Dantón;\n" +
+        "era Francia que enviaba a la muerte\n" +
+        "la cabeza del rey consagrado\n" +
+        "y que alzaba, soberbia a su lado\n" +
+        "el altar de la Diosa razón.");
+        coro();
+    }
+    public static void estrofa6(){
+        System.out.println("Tú también¡Oh mi patria!te alzaste\n" +
+        "de tu sueño servil y profundo;\n" +
+        "tú también enseñastes al mundo\n" +
+        "destrozado el infame eslabón.\n" +
+        "Y en tu suelo bendito, tras la alta\n" +
+        "cabellera de monte salvaje\n" +
+        "como un ave de negro plumaje\n" +
+        "la colonia fugaz se perdió.");
+        coro();
+    }
+    public static void estrofa7(){
+        System.out.println("VII\n" +
+        "Por guardar ese emblema divino\n" +
+        "marcharemos¡Oh patria!a la muerte;\n" +
+        "generosa será nuestra suerte\n" +
+        "si morimos pensando en tu amor.\n" +
+        "Defendiendo tu santa bandera,\n" +
+        "y en tus pliegues gloriosos cubiertos,\n" +
+        "serán muchos, Honduras, tus muertos,\n" +
+        "pero todos caerán con honor.");
+        coro();
+    }
+    public static void encabezado(){
+        System.out.println("============================\n"
+                + "= Autor:                   =\n" +
+                "= Letra: Augusto C. Coello =\n" +
+                "= Música: Carlos Harthling =\n" +
+                "= Año: 1915                =\n"
+                + "=============================");
+    }
+    public static void himnoCompleto(){
+        coro(); estrofa1(); estrofa2(); estrofa3();
+        estrofa4();estrofa5(); estrofa6(); estrofa7();
+     }
+    public static void main(String[] args) {
+           
+        encabezado();
+        
+        System.out.println("\nHimno Nacional de Honduras"
+                + "\nElije el numero de lo que deseas imprimir"
+                + "\ncoro >> op 1"
+                + "\n1 Estrofa >> op 2"
+                + "\n2 Estrofa >> op 3"
+                + "\n3 Estrofa >> op 4"
+                + "\n4 Estrofa >> op 5"
+                + "\n5 Estrofa >> op 6"
+                + "\n6 Estrofa >> op 7"
+                + "\n7 Estrofa >> op 8"
+                + "\nHimno Completo >> op 9\n"
+                + "\nOpcion:");
+       
+        boolean continuar = true;
+        
+        while(continuar == true){
+            int h = Integer.parseInt(new Scanner(System.in).nextLine());
+            switch(h){
+            case 1: coro();
+            break;
+            case 2: estrofa1();
+            break;
+            case 3: estrofa2();
+            break;
+            case 4: estrofa3();
+            break;
+            case 5: estrofa4();
+            break;
+            case 6: estrofa5();
+            break;
+            case 7: estrofa6();
+            break;
+            case 8: estrofa7();
+            break;
+            case 9: himnoCompleto();
+            break;
+            }
+            System.out.println("Quieres continuar y/n");
+            Scanner x = new Scanner(System.in);
+            String g = x.nextLine().toLowerCase();
+            
+            if(g.equals("n"))
+            {
+                System.out.println("Gracias por consultar el Himno, Adios");
+                break;
+            }else if(g.equals("y")){
+                System.out.println("Elije de nuevo, una opcion del 1-9");
+            }
+        }    
+    }
+}
