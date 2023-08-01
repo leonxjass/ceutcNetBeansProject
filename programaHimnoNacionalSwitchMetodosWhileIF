@@ -135,7 +135,7 @@ public class HimnoConArrSwicht {
        
         boolean continuar = true;
         
-        while(continuar == true){
+        while(continuar){
             int h = Integer.parseInt(new Scanner(System.in).nextLine());
             switch(h){
             case 1: coro();
