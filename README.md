@@ -14,4 +14,6 @@ laboratorio 2, renovamos el lab1 e implementamos formatos
 29/07 Hacemos nuestra primer tarea formulaCuadratica y el circo
 
 31/07 vemos arreglos y como usar metodos en JAVA 
+
+2/08 creamos el laboratorio 3 que parte del 1y2, solo que implementamos ciclos for y arreglos.
 */
