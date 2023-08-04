@@ -16,4 +16,8 @@ laboratorio 2, renovamos el lab1 e implementamos formatos
 31/07 vemos arreglos y como usar metodos en JAVA 
 
 2/08 creamos el laboratorio 3 que parte del 1y2, solo que implementamos ciclos for y arreglos.
+
+Entregamos tarea de metodos con el himno, y tarea de tabla aplicando arreglos y ciclos
+
+4/08 contadores & sumadores con metodos,arr,for
 */
