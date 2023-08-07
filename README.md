@@ -20,4 +20,7 @@ laboratorio 2, renovamos el lab1 e implementamos formatos
 Entregamos tarea de metodos con el himno, y tarea de tabla aplicando arreglos y ciclos
 
 4/08 contadores & sumadores con metodos,arr,for
+
+7/08 iniciamos metodos en la libreria Math, String, aprendimos de metodos y funciones, guardando su valor en variables e imprimiendolas en una linea de System
+
 */
