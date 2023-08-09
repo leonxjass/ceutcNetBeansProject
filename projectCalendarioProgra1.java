@@ -49,7 +49,7 @@ public class projectCalendarioProgra1 {
         String mes[] = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio"
             ,"Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
         int ds[] = {0,3,3,6,1,4,6,2,5,0,3,5};
-        int dm[] = {0,31,28,31,30,31,30,31,31,30,30,31};
+        int dm[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
         
         for(int k=1; k<12; k++)
             cal2(mes[k],ds[k],dm[k]);
