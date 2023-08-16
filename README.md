@@ -26,4 +26,6 @@ Entregamos tarea de metodos con el himno, y tarea de tabla aplicando arreglos y 
 
 11/08 Realizamos prueba 1 de programacion
 
+16/8 Iniciamos la Guia de Java para prepararnos para el examen
+
 */
