@@ -1,5 +1,3 @@
-package aaaa;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,7 +6,7 @@ package aaaa;
 
 /**
  *
- * @author tguca-L01
+ * @author leonxjass
  */
 public class GuiaEjercicios {
     
@@ -16,7 +14,7 @@ public class GuiaEjercicios {
         
     /**
      * Le damos una cantidad al programa y nos retorna cuantos billetes de cada
-     * denominacion se necesitan para obtener esa cantidad.
+     * denominacion se necesitan para obtener esa cantidad
     */    
     int cantidad = c;
     int b500=500, b200=200, b100=100, b50=50, b20=20,b10=10,b5=5,b2=2,b1=1;
@@ -75,8 +73,47 @@ public class GuiaEjercicios {
         System.out.println("Total \t\t\t\t" + tg);
     }
     
+    public static void ejer4(){
+        int largo[] = {0,7,5,8,9,12};
+        int ancho[] = {0,4,5,3,9,6};
+        String Area[] = {"Area 1","Area 2","Area 3", "Area 4", "Area 5",};
+        
+        System.out.println("No\tLargo\tAncho\tArea\tPerimetro\tfigura");
+        System.out.println("=========================================");
+       
+        for(int j=1; j<=5; j++){
+            System.out.println(j+"\t "+largo[j]+"\t "+ancho[j]+"\t "
+                    +(largo[j]*ancho[j])+"\t "+((2*largo[j])+(2*ancho[j]))
+                    +"\t\tRectangulo");
+        }
+    
+    }
+    public static void ejer5(){
+        
+        String pd[] = {"P1","P2","P3","P4","P5"};
+        int mes1[]  = {12,17,28,14,21}; 
+        int mes2[]  = {13,15,14,18,17}; 
+        int mes3[]  = {20,16,17,11,19}; 
+        int tm1=0,tm2=0, tm3=0,tm4=0,tm5=0, txv=0;
+         
+        System.out.println("Prod\tMes 1\tMes 2\tMes 3\tTotal");
+        System.out.println("--------------------------------");
+        for(int k=0;k<5;k++){
+            System.out.println(pd[k]+"\t"+mes1[k]+"\t"+mes2[k]+"\t"+mes3[k]
+            +"\t"+(mes1[k]+mes2[k]+mes3[k]));
+            tm1= tm1+mes1[k]; 
+            tm2= tm2+mes2[k]; 
+            tm3= tm3+mes3[k];
+        }
+        System.out.println("Total\t"+tm1+"\t"+tm2+"\t"+tm3+"\t"+(tm1+tm2+tm3));
+        System.out.println("Prome\t"+(tm1/5)+"\t"+(tm2/5)+"\t"+(tm3/5)+"\t"
+        +((tm1+tm2+tm3)/5));
+        
+    }
     public static void main(String[] arg){
         System.out.println();
-        ejer1(8797);
+        //ejer1(8797);
+        //ejer4();
+        ejer5();
     }
 }
