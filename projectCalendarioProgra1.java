@@ -27,23 +27,25 @@ public class projectCalendarioProgra1 {
         System.out.println("");//3
     
     }
-    public static void cal2(String nombreMes,int iniDiaMes, int tDiaMes){
-         
-        int dia = 0;
+
+    public static void anioBiciesto(int elec){
+        int anio = elec;
         
-        System.out.println(nombreMes);
-        System.out.println("Do\tLu\tMa\tMi\tJu\tVi\tSa");
-        
-        for(int c=1; c<=42; c++){
-           if(c>iniDiaMes && dia<tDiaMes){
-               dia = dia +1;
-           System.out.print(dia + "\t");}
-           else
-                System.out.print(" " + "\t");
-           if(c%7 == 0) System.out.println("");
+        if(anio % 4 == 0){
+            if(anio % 100 == 0){
+                if(anio % 400 == 0){
+                    System.out.println("Anio Biciesto");
+                }else{
+                    System.out.println("No es biciesto");
+                }
+            }else{
+                System.out.println("Anio biciesto");
+            }
+        }else{
+            System.out.println("No es biciesto");
         }
-        System.out.println(" ");
     }
+
     public static void main(String[] arg){
         //cal2("Enero", 0,31);
         String mes[] = {"","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio"
