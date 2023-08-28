@@ -1,26 +1,29 @@
-package denominaciones;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
 
-public class projectCalendarioProgra1 {
-   
-    public static void cal1(){
-        int dia = 0;
-        
-        System.out.println("Do\tLu\tMa\tMi\tJu\tVi\tSa");
-        
-        for(int c=1; c<=42; c++){
-            if(c>=6)
-                dia = dia + 1; //1
-            //if(dia>31) break;
-            System.out.print(dia + "\t");
-            if(c%7 == 0)System.out.println(""); // 2
-        }       
-        //salto de linea
-        System.out.println("");//3
+package com.mycompany.connection;
+
+/**
+ *
+ * @author leonj
+ */
+public class Connection {
     
-    }
-   
-    public static void cal2(String nombreMes,int iniDiaMes, int tDiaMes){
-         
+   public static int Biciesto(int anioBiciesto){
+       if(anioBiciesto %100 == 0)
+            if(anioBiciesto %400 == 0)
+                return 1;
+            else
+                return 0;
+        else
+            if(anioBiciesto%4==0)
+                return 1;
+            else 
+                return 0;
+   } 
+
+   public static void imprimeMes(String nombreMes,int iniDiaMes, int tDiaMes){
         int dia = 0;
         
         System.out.println(nombreMes);
@@ -38,19 +41,21 @@ public class projectCalendarioProgra1 {
     }
     
     public static void main(String[] arg){
-        //cal2("Enero", 0,31);
+        
+        int anioElegido = 1996;
+        
         String mes[] = {"","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio"
             ,"Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
         int ds[] = {0,0,3,3,6,1,4,6,2,5,0,3,5};
         int dm[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
         
         for(int k=1; k<13; k++)
-            cal2(mes[k],ds[k],dm[k]);
-       /*
-        System.out.println(mes.length);
-        System.out.println(ds.length);
-        System.out.println(dm.length);
-       */
+            imprimeMes(mes[k],ds[k],dm[k]);
+        
+        if(Biciesto(anioElegido) == 1)
+            System.out.println("El año " + anioElegido + " es Biciesto");
+        else
+            System.out.println("El año " + anioElegido + " no es Biciesto");
     }
 }
 
