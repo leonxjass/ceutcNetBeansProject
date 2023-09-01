@@ -138,6 +138,34 @@ public class guiaArreglos2 {
            if(i%2!=0) System.out.println("pocicion:"+i+"valor: "+a[i]);
     }
     
+    public static void ejercicio16(int a[]){
+        for(int k=0; k<a.length; k++){
+            if(a[k]>20) 
+                System.out.println(a[k]);
+        }
+    }
+
+    public static void ejercicio17(int a[]){
+        for(int k=0; k<a.length; k++){
+            if(a[k]<=50) 
+                System.out.println(a[k]);
+        }
+    }
+
+    public static void ejercicio18(int a[]){
+        for(int k=0; k<a.length; k++){
+            if(a[k] >20 && a[k]<=50) 
+                System.out.println(a[k]);
+        }
+    }
+
+   public static void ejercicio19(int a[]){
+        for(int k=0; k<a.length; k++){
+            if(a[k] >20 || a[k]<=50) 
+                System.out.println(a[k]);
+        }
+    }
+    
     public static void main(String[] arg){
         int a[] = {24,39,19,36,22,57,91,16,73,45};
         //          0     2     4     6     8
@@ -176,7 +204,14 @@ public class guiaArreglos2 {
           //imprimiendo las posiciones pares del arr
           //ejercicio14(a);
           //imprimiendo las pociciones impares del arr
-          ejercicio15(a);
-    
+          //ejercicio15(a);
+         //imprimiendo los numeros mayores a 20 del arr
+         //ejerciciio16(a);
+         //imprimiendo los numeros menores e iguales a 50
+         //ejercicio17(a);
+         //Imprima los numeros mayores a 20 y menores e iguales a 50 del arr
+         //ejercicio18(a);
+         //Imprima los numeros mayores a 20 o menores e iguales a 50 del arr
+         ejercicio19(a);
     }
 }
