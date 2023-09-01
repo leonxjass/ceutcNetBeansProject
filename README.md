@@ -33,4 +33,6 @@ Entregamos tarea de metodos con el himno, y tarea de tabla aplicando arreglos y 
 21/8 continuamos nuestro proyecto
 
 30/08 iniciamos la guia del segundo periodo
+
+1/09 avanzamos la guia 2 de arr hasta el ejer19
 */
