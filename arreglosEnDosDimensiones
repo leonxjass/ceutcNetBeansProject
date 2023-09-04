@@ -1,0 +1,70 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author tguca-L01
+ */
+public class arrEnDosDimensiones {
+    
+    public static void imprimeMartiz(int a[][]){
+        int n = a.length;
+        
+        for(int i=1; i<=n-1; i++){
+            for(int j=1; j<=n-1; j++)
+                System.out.print(a[i][j] + "\t");
+            System.out.println(" ");
+        } 
+        System.out.println("==================");
+    
+    }
+    
+    public static int[][] sumaMatrices(int a[][], int b[][]){
+        
+        int c[][] = new int[4][4];
+        int n = c.length;
+        
+         for(int i=1; i<=n-1; i++)
+            for(int j=1; j<=n-1; j++)
+                c[i][j]= a[i][j] + b[i][j];
+         
+         return c;
+    }
+    
+        public static void sumaMatrices2(int a[][], int b[][], int c[][]){
+        
+        //int c[][] = new int[4][4];
+        int n = c.length;
+        
+         for(int i=1; i<=n-1; i++)
+            for(int j=1; j<=n-1; j++)
+                c[i][j]= a[i][j] + b[i][j];
+    }
+    
+    public static void imprimeDosMatrices(int a[][], int b[][]){
+        imprimeMartiz(a);
+        imprimeMartiz(b);
+    }
+    
+    public static void main(String[] arg){
+        int a[][] = { {0,0,0,0},{0,45,27,84},{0,92,65,39},{0,51,70,47} }; 
+        int b[][] = { {0,0,0,0},{0,23,17,54},{0,62,55,27},{0,46,52,33} }; 
+        int c[][] = new int[4][4];
+        
+        imprimeMartiz(a);
+        imprimeMartiz(b);
+        c = sumaMatrices(a,b);
+        System.out.println(c);
+        
+        sumaMatrices2(a,b,c);
+        //imprimeMatriz(c);
+        
+    }
+    
+    /**
+     * arrglos en dos dimensiones o matrices
+    */
+}
