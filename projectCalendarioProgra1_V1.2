@@ -9,21 +9,8 @@ package com.mycompany.connection;
  * @author leonj
  */
 public class proyectoAñoBiciesto {
-    
-   public static int Biciesto(int anioBiciesto){
-       if(anioBiciesto %100 == 0)
-            if(anioBiciesto %400 == 0)
-                return 1;
-            else
-                return 0;
-        else
-            if(anioBiciesto%4==0)
-                return 1;
-            else 
-                return 0;
-   } 
 
-   public static void imprimeMes(String nombreMes,int iniDiaMes, int tDiaMes){
+        public static void imprimeMes(String nombreMes,int iniDiaMes, int tDiaMes){
         int dia = 0;
         
         System.out.println(nombreMes);
@@ -39,23 +26,62 @@ public class proyectoAñoBiciesto {
         }
         System.out.println(" ");
     }
+
+    public static void anioBiciesto(int elec){
+        int anio = elec;
+        
+        if(anio % 4 == 0){
+            if(anio % 100 == 0){
+                if(anio % 400 == 0){
+                    System.out.println("Anio Biciesto");
+                }else{
+                    System.out.println("No es biciesto");
+                }
+            }else{
+                System.out.println("Anio biciesto");
+            }
+        }else{
+            System.out.println("No es biciesto");
+        }
+    }
+    
+    public static int numDiasDelAnio(int dias, int mes){
+        
+        int totalDias = 0;
+        
+        if(dias <= 31){
+            int diasDelMes[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+            for(int i= 1; i<= mes - 1;i++ )
+                totalDias = totalDias + diasDelMes[i];
+            return totalDias + dias;
+        }
+        else return 0;
+    }
+    
+    public static int diasEntreDosFechas(int dias1, int mes1, int dias2, int mes2){
+        int diasEntreDosFechas = 0;
+        
+        if(dias1 <= 31 && dias2<=31)
+            diasEntreDosFechas = numDiasDelAnio(dias1, mes1) - numDiasDelAnio(dias2, mes2);
+        
+        return diasEntreDosFechas;
+    
+    }
     
     public static void main(String[] arg){
         
-        int anioElegido = 1996;
-        
         String mes[] = {"","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio"
             ,"Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
+        
         int ds[] = {0,0,3,3,6,1,4,6,2,5,0,3,5};
         int dm[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
         
         for(int k=1; k<13; k++)
             imprimeMes(mes[k],ds[k],dm[k]);
         
-        if(Biciesto(anioElegido) == 1)
-            System.out.println("El año " + anioElegido + " es Biciesto");
-        else
-            System.out.println("El año " + anioElegido + " no es Biciesto");
+        System.out.println(numDiasDelAnio(32,12));
+        System.out.println(numDiasDelAnio(31,1));
+        System.out.println("Han pasado " + diasEntreDosFechas(31,1,31,12) + " Dias"); 
     }
 }
 
