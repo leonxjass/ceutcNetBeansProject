@@ -35,4 +35,9 @@ Entregamos tarea de metodos con el himno, y tarea de tabla aplicando arreglos y 
 30/08 iniciamos la guia del segundo periodo
 
 1/09 avanzamos la guia 2 de arr hasta el ejer19
+
+6/09 vimos el metodo arr en 2 dimensiones 
+
+8/09 vimos metodo Scanner y JOptionPane
+
 */
