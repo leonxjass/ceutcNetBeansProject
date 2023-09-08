@@ -218,9 +218,15 @@ public class guiaArreglos2 {
         else 
             System.out.println("\nNumero: "+ b +" no encontrado en ninguna "
                     + " parte del arreglo");
-        
-        
-       
+    }
+
+    public static void ejercicio20(int a[]){
+        int menor = a[0];
+        for(int k=0; k<a.length;k++){
+            if(a[k]<menor)
+                mayor = a[k];
+        }
+        System.out.println("El menor es: " + menor);
     }
     
     public static void main(String[] arg){
