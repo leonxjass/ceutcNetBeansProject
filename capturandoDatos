@@ -1,0 +1,83 @@
+
+package matrices;
+import java.util.Scanner;
+
+
+public class Matrices {
+
+    public static void suma(){
+        int n1,n2;
+        Scanner sc = new Scanner(System.in);
+        double ans;
+        
+        System.out.print("Ingrese el primer numero: ");
+        n1 = sc.nextInt();
+        System.out.print("Ingrese el segundo numero: ");
+        n2 = sc.nextInt();
+        sc.close();
+
+        ans = n1 + n2;
+        System.out.println("La suma de: " + n1 + " y " + n2 + " = " + ans);
+    }
+    
+    public static void resta(){
+        int n1,n2;
+        Scanner sc = new Scanner(System.in);
+        double ans;
+
+        System.out.print("Ingrese el primer numero: ");
+        n1 = sc.nextInt();
+        System.out.print("Ingrese el segundo numero: ");
+        n2 = sc.nextInt();
+        sc.close();
+
+        ans = n1 - n2;
+        System.out.println("La suma de: " + n1 + " y " + n2 + " = " + ans);
+    }
+
+    public static void division(){
+        int n1,n2;
+        Scanner sc = new Scanner(System.in);
+        double ans;
+
+        System.out.print("Ingrese el primer numero: ");
+        n1 = sc.nextInt();
+        System.out.print("Ingrese el segundo numero: ");
+        n2 = sc.nextInt();
+        sc.close();
+
+        ans = n1 / n2;
+        System.out.println("La division de: " + n1 + " y " + n2 + " = " + ans);
+    }
+
+    public static void multiplica(){
+        int n1,n2;
+        Scanner sc = new Scanner(System.in);
+        double ans;
+
+        System.out.print("Ingrese el primer numero: ");
+        n1 = sc.nextInt();
+        System.out.print("Ingrese el segundo numero: ");
+        n2 = sc.nextInt();
+        sc.close();
+
+        ans = n1 * n2;
+        System.out.println("La multiplica de: " + n1 + " y " + n2 + " = " + ans);
+    }
+     
+    public static void main(String[] args) {
+        Scanner reco = new Scanner(System.in);
+        
+        System.out.println("Cual es tu nombre");
+        String nombre = reco.nextLine();        
+        System.out.println("Cual es tu altura");
+        double altura = reco.nextDouble();
+        System.out.println("Buen dia " + nombre + " Bro, tu altura es: " + altura);
+        
+        //suma();
+        //resta();
+        //division();
+        //multiplica();
+    }
+    
+}
