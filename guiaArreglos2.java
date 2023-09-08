@@ -220,7 +220,7 @@ public class guiaArreglos2 {
                     + " parte del arreglo");
     }
 
-    public static void ejercicio20(int a[]){
+    public static void ejercicio21(int a[]){
         int menor = a[0];
         for(int k=0; k<a.length;k++){
             if(a[k]<menor)
