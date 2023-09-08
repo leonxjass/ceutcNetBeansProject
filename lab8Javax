@@ -1,0 +1,55 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package capturaconventanas;
+import javax.swing.JOptionPane;
+import java.util.Scanner;
+
+/**
+ *
+ * @author tguca-L01
+ */
+public class CapturaConVentanas {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        String sOption;
+        int op, result;
+        
+        String sn1 = JOptionPane.showInputDialog(null, "Ingrese el primer numero");
+        String sn2 = JOptionPane.showInputDialog(null, "Ingrese el segundo numero");
+        
+        int n1 = Integer.valueOf(sn1);
+        int n2 = Integer.valueOf(sn2);
+        
+        //Creando el swicht
+        op=0;
+        while(op<5){
+            String s = "Menu de Opciones \n1. Suma\n2. Resta\n3. Division\n4. Multiplicacion\n5. Salir";
+            sOption = JOptionPane.showInputDialog(null, s);
+            op = Integer.valueOf(sOption);
+
+            if(op == 1){result = n1 + n2; JOptionPane.showMessageDialog(null, "La suma es : " + result);}
+            if(op == 2){result = n1 - n2; JOptionPane.showMessageDialog(null, "La resta es : " + result);}
+            if(op == 3){result = n1 / n2; JOptionPane.showMessageDialog(null, "La division es : " + result);}
+            if(op == 4){result = n1 * n2; JOptionPane.showMessageDialog(null, "La multiplicacion es : " + result);}
+            if(op==5)
+                JOptionPane.showMessageDialog(null, "Gracias por usar nuestro Sistema");
+            break;
+            //else JOptionPane.showMessageDialog(null, "Option null");
+        }
+        
+
+    }
+    
+    /**
+     * Con los JOptionPane, unicamente podemos capturar String y no podemos 
+     * capturar (int, double)
+    */
+}
