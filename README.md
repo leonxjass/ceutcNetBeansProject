@@ -38,6 +38,6 @@ Entregamos tarea de metodos con el himno, y tarea de tabla aplicando arreglos y 
 
 6/09 vimos el metodo arr en 2 dimensiones 
 
-8/09 vimos metodo Scanner y JOptionPane
+8/09 vimos metodo Scanner y JOptionPane con libreria javax o JAVA SWING
 
 */
