@@ -64,6 +64,16 @@ public class Matrices {
         ans = n1 * n2;
         System.out.println("La multiplica de: " + n1 + " y " + n2 + " = " + ans);
     }
+
+    public static void castVar(){
+        String sn1 = "25";
+        String sn2 = "25";
+        
+        int n1 = Integer.valueOf(sn1);
+        int n2 = Integer.valueOf(sn2);
+        
+        System.out.println(n1+n2);
+    }
      
     public static void main(String[] args) {
         Scanner reco = new Scanner(System.in);
@@ -73,7 +83,7 @@ public class Matrices {
         System.out.println("Cual es tu altura");
         double altura = reco.nextDouble();
         System.out.println("Buen dia " + nombre + " Bro, tu altura es: " + altura);
-        
+        castVar();
         //suma();
         //resta();
         //division();
