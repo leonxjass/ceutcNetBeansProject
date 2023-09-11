@@ -40,4 +40,6 @@ Entregamos tarea de metodos con el himno, y tarea de tabla aplicando arreglos y 
 
 8/09 vimos metodo Scanner y JOptionPane con libreria javax o JAVA SWING
 
+11/09 Metodo Bubble Sort conocido en la clase como swap, terminamos el ejercicio de menor a mayor
+
 */
