@@ -1,23 +1,29 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
+
+package com.mycompany.guiaarreglos2;
+
 
 /**
  *
- * @author tguca-L01
+ * @author leonj
  */
-public class guiaArreglos2 {
-        public static void header(int a){
+public class GuiaArreglos2 {
+    
+    public static void header(int a){
+        if(a != 0){
         System.out.println("\n\nEjercicio #" + a
         + "\n==========================================");
+        }
     }
 
-    public static void ejercicio1(int a[]){
-        header(1);
-        System.out.println("los numeros del arreglo a son:");
-        for(int k=0; k<=9; k++)
+    public static void ejercicio1(int a[],int b){
+        header(b);
+        int t=0;
+        if(b!=0)
+            System.out.println("los numeros del arreglo a son:");
+        for(int k=0; k<10; k++)
             System.out.print(a[k] + " ");
     }
     
@@ -217,93 +223,206 @@ public class guiaArreglos2 {
                     + contadorPosicion + " del arreglo a[i]");
         else 
             System.out.println("\nNumero: "+ b +" no encontrado en ninguna "
-                    + " parte del arreglo");
+                    + " parte del arreglo"); 
     }
-
-    public static void ejercicio21(int a[]){
+    
+    public static void ejercicio21(int a[], int ejerc){
+        header(ejerc);
         int menor = a[0];
         for(int k=0; k<a.length;k++){
             if(a[k]<menor)
-                mayor = a[k];
+                menor = a[k];
         }
         System.out.println("El menor es: " + menor);
+    }
+    
+    public static void ejercicio22(int a[],int ejerc){
+        header(ejerc);
+        int mayor = a[0];
+        for(int k=0; k<a.length;k++){
+            if(a[k]>mayor)
+                mayor = a[k];
+        }
+        System.out.println("El mayor es: " + mayor);
+    }
+    
+    public static void ejercicio23(int a[], int ejerc){
+        header(ejerc);
+        int t;
+        int n=a.length;
+        for(int v=1;v<n; v++)
+            for(int k=0; k<=n-2; k++)
+                if(a[k+1]<a[k]){
+                    t = a[k];
+                    a[k]= a[k+1];
+                    a[k+1] = t;
+                }
+        for(int l=0; l<a.length;l++)
+            System.out.println(a[l]);
+    }
+    
+    public static void ejercicio24(int a[], int ejerc){
+        header(ejerc);
+        int t;
+        int n=a.length;
+        for(int v=1;v<n; v++)
+            for(int k=0; k<=n-2; k++)
+                if(a[k+1]>a[k]){
+                    t = a[k];
+                    a[k]= a[k+1];
+                    a[k+1] = t;
+                }
+        ejercicio1(a,0);
+    }
+    
+    public static void ejercicio25(int a[], int b[], int ejerc){
+        header(ejerc);
+        
+        System.out.print("Arreglos pares: "); ejercicio1(a,0);
+        System.out.println(" ");
+        System.out.print("Arreglos impares: "); ejercicio1(b,0);
+        System.out.println(" ");
+        
+        if (a.length != b.length) {
+            System.out.println("Los arreglos deben tener la misma longitud "
+                    + "para intercambiar valores.");}
+        
+        int n = a.length;
+        int temp;
+        for (int i = 0; i < n; i++) {
+            temp = a[i];
+            a[i] = b[i];
+            b[i] = temp;
+        }
+        
+        System.out.println("\nIntercambio de arreglo impares a pares");
+        ejercicio1(a,0);
+        System.out.println("");
+        System.out.println("tercambio de arreglo pares a impares");
+        ejercicio1(b,0);
+    }
+    
+    public static void ejercicio26(int a[], int b[], int ejerc){
+        header(ejerc);
+        
+        int [] c = new int[11];
+        int temp;
+        
+        System.out.println("areglo a:");
+        ejercicio1(a,0);
+        System.out.println("\narreglo b");
+        ejercicio1(b,0);
+        
+        System.out.println("\nLos resultados de la resta de los arreglos a & b");
+        for(int i=0; i<10;i++){
+            temp = b[i] - a[i];
+            c[i]= temp;
+            System.out.print(c[i]+"  ");
+        }
     }
     
     public static void main(String[] arg){
         int a[] = {24,39,19,36,22,57,91,16,73,45};
         //          0     2     4     6     8
         
-//        //imprimiendo el arr
-//        ejercicio1(a);
-//        
-//        //sumando y retornando los numeros del arr
-//        header(2);
-//        System.out.println("la suma de todos los numeros del arreglo "
-//                + "es: "+ejercicio2(a));
-//        
-//        //imprimiendo todos los pares del arr
-//        ejercicio3(a);
-//        
-//        //imprimiendo todos los impares del arr
-//        ejercicio4(a);
-//        
-//        //contando los numeros pares del arr
-//        header(5);
-//        System.out.println("contando los numeros pares del arreglo "
-//                + "es: "+ejercicio5(a));
-//        
-//        //contando los numeros impares del arr
-//        header(6);
-//        System.out.println("contando los numeros impares los numeros del arreglo "
-//                + "es: "+ejercicio6(a));
-//        
-//        //sumando los numeros pares del arr
-//        header(7);
-//        System.out.println("sumando los numeros pares los numeros del arreglo "
-//                + "es: "+ejercicio7(a));
-//
-//        //sumando todos los impares del arr
-//        header(8);
-//        System.out.println("sumando los numeros impares los numeros del arreglo "
-//                + "es: "+ejercicio8(a));
-//        
-//        //imprima los numeros del arr en manera inversa
-//        ejercicio9(a);
-//        
-//        //imprima los numeros divisibles de 3
-//        ejercicio10(a);
-//        
-//        //contando los numeros divisibles entre 3
-//        header(11);
-//        System.out.println("contando los numeros divisibles %3 del arreglo "
-//                + "son: "+ejercicio11(a));
-//        
-//        //sumando los numeros divisibles de 3
-//        header(12);
-//        System.out.println("la suma de los numeros %3 del arreglo"
-//                + "son: "+ejercicio12(a));
-//
-//        //restando los pares a los impares
-//        //System.out.println(ejercicio13V1(ejercicio8(a), ejercicio7(a)));
-//        header(13);
-//        System.out.println("restando a la suma de los pares la suma de los impares "
-//                + "es: "+ejercicio13V2(a));
-//        
-//        //imprimiendo las posiciones pares del arr
-//        ejercicio14(a);
-//        //imprimiendo las pociciones impares del arr
-//        ejercicio15(a);
-//        //imprimiendo los numeros mayores a 20 del arr
-//        ejercicio16(a);
-//        //imprimiendo los numeros menores e iguales a 50
-//        ejercicio17(a);
-//        //Imprima los numeros mayores a 20 y menores e iguales a 50 del arr
-//        ejercicio18(a);
-//        //Imprima los numeros mayores a 20 o menores e iguales a 50 del arr
-//        ejercicio19(a);
-         //encontrando 1 numero x dentro del arreglo
-         ejercicio20(a, 45);
+        int pares[] = {25,39,19,33,21,57,91,17,73,45};
+        int impares[] = {24,38,18,36,22,54,94,16,74,46};
+        
+        //imprimiendo el arr
+        ejercicio1(a,1);
+        
+        //sumando y retornando los numeros del arr
+        header(2);
+        System.out.println("la suma de todos los numeros del arreglo "
+                + "es: "+ejercicio2(a));
+        
+        //imprimiendo todos los pares del arr
+        ejercicio3(a);
+        
+        //imprimiendo todos los impares del arr
+        ejercicio4(a);
+        
+        //contando los numeros pares del arr
+        header(5);
+        System.out.println("contando los numeros pares del arreglo "
+                + "es: "+ejercicio5(a));
+        
+        //contando los numeros impares del arr
+        header(6);
+        System.out.println("contando los numeros impares los numeros del arreglo "
+                + "es: "+ejercicio6(a));
+        
+        //sumando los numeros pares del arr
+        header(7);
+        System.out.println("sumando los numeros pares los numeros del arreglo "
+                + "es: "+ejercicio7(a));
 
-    
-    } 
+        //sumando todos los impares del arr
+        header(8);
+        System.out.println("sumando los numeros impares los numeros del arreglo "
+                + "es: "+ejercicio8(a));
+        
+        //imprima los numeros del arr en manera inversa
+        ejercicio9(a);
+        
+        //imprima los numeros divisibles de 3
+        ejercicio10(a);
+        
+        //contando los numeros divisibles entre 3
+        header(11);
+        System.out.println("contando los numeros divisibles %3 del arreglo "
+                + "son: "+ejercicio11(a));
+        
+        //sumando los numeros divisibles de 3
+        header(12);
+        System.out.println("la suma de los numeros %3 del arreglo"
+                + "son: "+ejercicio12(a));
+
+        //restando los pares a los impares
+        //System.out.println(ejercicio13V1(ejercicio8(a), ejercicio7(a)));
+        header(13);
+        System.out.println("restando a la suma de los pares la suma de los impares "
+                + "es: "+ejercicio13V2(a));
+        
+        //imprimiendo las posiciones pares del arr
+        ejercicio14(a);
+
+        //imprimiendo las pociciones impares del arr
+        ejercicio15(a);
+
+        //imprimiendo los numeros mayores a 20 del arr
+        ejercicio16(a);
+
+        //imprimiendo los numeros menores e iguales a 50
+        ejercicio17(a);
+
+        //Imprima los numeros mayores a 20 y menores e iguales a 50 del arr
+        ejercicio18(a);
+
+        //Imprima los numeros mayores a 20 o menores e iguales a 50 del arr
+        ejercicio19(a);
+
+        //encontrando 1 numero x dentro del arreglo
+        ejercicio20(a, 45);
+         
+        //Encontrando el numero menor del arr
+        ejercicio21(a, 21);
+
+        //Encontrando el numero mayor del arr
+        ejercicio22(a,22);
+
+        //Ordenamiento Bubble Sort del arr menor a mayor
+        ejercicio23(a,23);
+
+        //Ordenamineto Bubble Sort del arr mayor al menor
+        ejercicio24(a,0);
+
+        //interambiando los arreglos de Pares a Impares
+        ejercicio25(pares,impares,25);
+
+        //restando los valores de un arrA a un Arrb 1 a 1
+        ejercicio26(impares, pares, 26);
+        
+         
+    }
 }
