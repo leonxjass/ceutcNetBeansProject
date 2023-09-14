@@ -42,4 +42,6 @@ Entregamos tarea de metodos con el himno, y tarea de tabla aplicando arreglos y 
 
 11/09 Metodo Bubble Sort conocido en la clase como swap, terminamos el ejercicio de menor a mayor
 
+14/09 Se elabora la version 3 del proyecto del calendario, sujeta a generar una V4 para finalizar los requerimientos de la clase
+
 */
