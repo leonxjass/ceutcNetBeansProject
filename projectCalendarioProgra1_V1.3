@@ -1,83 +1,141 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- * Metodo Utilizado para los ejercicios https://es.wikipedia.org/wiki/Congruencia_de_Zeller; 
  */
 package com.mycompany.guiaarreglos2;
-
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 /**
  *
  * @author leonj
  */
 public class JavaProjectoCalendarioJava {
 
-public static String obtenerNombreDelMes(int mes) {
-    switch (mes) {
-        case 1:
-            return "Enero";
-        case 2:
-            return "Febrero";
-        case 3:
-            return "Marzo";
-        case 4:
-            return "Abril";
-        case 5:
-            return "Mayo";
-        case 6:
-            return "Junio";
-        case 7:
-            return "Julio";
-        case 8:
-            return "Agosto";
-        case 9:
-            return "Septiembre";
-        case 10:
-            return "Octubre";
-        case 11:
-            return "Noviembre";
-        case 12:
-            return "Diciembre";
-        default:
-            return "";
+    public static String obtenerNombreDelMes(int mes) {
+        switch (mes) {
+            case 1:
+                return "Enero";
+            case 2:
+                return "Febrero";
+            case 3:
+                return "Marzo";
+            case 4:
+                return "Abril";
+            case 5:
+                return "Mayo";
+            case 6:
+                return "Junio";
+            case 7:
+                return "Julio";
+            case 8:
+                return "Agosto";
+            case 9:
+                return "Septiembre";
+            case 10:
+                return "Octubre";
+            case 11:
+                return "Noviembre";
+            case 12:
+                return "Diciembre";
+            default:
+                return "";
+        }
+    }    
+
+    public static boolean esAñoBisiesto(int año) {
+            return (año % 4 == 0 && año % 100 != 0) || (año % 400 == 0);
     }
-}    
 
-public static boolean esAñoBisiesto(int año) {
-        return (año % 4 == 0 && año % 100 != 0) || (año % 400 == 0);
-}
+    public static String imprimirDiasSemanaArr(int dia){
+        String dias []= {" ","Domingo", "Lunes "," Martes "," Miercoles "," Jueves "," Viernes "," Sabado"};
 
-public static String imprimirDiasSemanaArr(int dia){
-    String dias []= {" "," Domingo ", " Lunes "," Martes "," Miercoles "," Jueves "," Viernes "," Sabado "};
-    
-    return dias[dia];
-}
+        return dias[dia];
+    }
 
-public static void imprimirAño(int año) {
-    /**
-     * Calcular el día de la semana para el 1 de enero del año n utilizando el algoritmo de congruencia de Zeller
-     * https://es.wikipedia.org/wiki/Congruencia_de_Zeller; 
-     * Dado que la ecucacion de Zeller inicializa q=1, y q  es el dia inicial del mes 
-     * para nuestro tiempo, el año 2023 inicio en domingo osea dia[0], entonces q=0
-    */ 
-    
-    int q = 0; 
-    int m = 13;
-    int k = año % 100;
-    int j = año / 100;
-    int h = (q + 13 * (m + 1) / 5 + k + k / 4 + j / 4 + 5 * j) % 7;
-    int primerDiaDeLaSemana = (h + 6) % 6 + 1;
-    
-    
-    // Imprimir encabezado del año
-    System.out.println(año);
+    public static void imprimirAño(int año) {
+        /**
+         * Calcular el día de la semana para el 1 de enero del año n utilizando el algoritmo de congruencia de Zeller
+         * https://es.wikipedia.org/wiki/Congruencia_de_Zeller; 
+         * Dado que la ecucacion de Zeller inicializa q=1, y q  es el dia inicial del mes 
+         * para nuestro tiempo, el año 2023 inicio en domingo osea dia[0], entonces q=0
+        */ 
 
-    // Imprimir cada mes
-    for (int mes = 1; mes <= 12; mes++) {
+        int q = 0; 
+        int m = 13;
+        int k = año % 100;
+        int j = año / 100;
+        int h = (q + 13 * (m + 1) / 5 + k + k / 4 + j / 4 + 5 * j) % 7;
+        int primerDiaDeLaSemana = (h + 5) % 6 + 1;
+
+
+        // Imprimir encabezado del año
+        System.out.println("Año " +año);
+
+        // Imprimir cada mes
+        for (int mes = 1; mes <= 12; mes++) {
+            // Calcular el número de días en el mes utilizando una declaración switch.
+            int diasEnElMes;
+            switch (mes) {
+                case 2:
+                    if (año % 4 == 0 && (año % 100 != 0 || año % 400 == 0)) {
+                        diasEnElMes = 29;
+                    } else {
+                        diasEnElMes = 28;
+                    }
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    diasEnElMes = 30;
+                    break;
+                default:
+                    diasEnElMes = 31;
+                    break;
+            }
+
+            // Imprimir encabezado del mes
+            System.out.println(obtenerNombreDelMes(mes));
+            System.out.println("Do Lu Ma Mi Ju Vi Sa");
+
+            // Imprimir espacios en blanco
+            for (int i = 1; i < primerDiaDeLaSemana; i++) {
+                System.out.print("   ");
+            }
+
+            // Imprimir días del mes
+            for (int dia = 1; dia <= diasEnElMes; dia++) {
+                System.out.printf("%2d ", dia);
+                if ((dia + primerDiaDeLaSemana - 1) % 7 == 0) {
+                    System.out.println();
+                }
+            }
+
+            // Actualizar el primer día de la semana para el próximo mes
+            primerDiaDeLaSemana = (primerDiaDeLaSemana + diasEnElMes) % 7;
+            if (primerDiaDeLaSemana == 0) {
+                primerDiaDeLaSemana = 7;
+            }
+
+            // Imprimir línea en blanco entre los meses
+            System.out.println();
+        }
+    }
+
+    public static void imprimirMes(int mes, int anio) {
+        // Calcular el día de la semana para el primer día del mes utilizando el algoritmo de congruencia de Zeller.
+        int q = 1;
+        int m = mes;
+        int k = anio % 100;
+        int j = anio / 100;
+        int h = (q + 13 * (m + 1) / 5 + k + k / 4 + j / 4 + 5 * j) % 7;
+        int primerDiaDeLaSemana = (h + 5) % 6 + 1;
+
         // Calcular el número de días en el mes utilizando una declaración switch.
         int diasEnElMes;
         switch (mes) {
             case 2:
-                if (año % 4 == 0 && (año % 100 != 0 || año % 400 == 0)) {
+                if (anio % 4 == 0 && (anio % 100 != 0 || anio % 400 == 0)) {
                     diasEnElMes = 29;
                 } else {
                     diasEnElMes = 28;
@@ -94,8 +152,10 @@ public static void imprimirAño(int año) {
                 break;
         }
 
-        // Imprimir encabezado del mes
-        System.out.println(obtenerNombreDelMes(mes));
+        // Imprimir encabezado del mes y año
+        System.out.println(obtenerNombreDelMes(mes) + " " + anio);
+
+        // Imprimir encabezado de los días de la semana
         System.out.println("Do Lu Ma Mi Ju Vi Sa");
 
         // Imprimir espacios en blanco
@@ -106,271 +166,323 @@ public static void imprimirAño(int año) {
         // Imprimir días del mes
         for (int dia = 1; dia <= diasEnElMes; dia++) {
             System.out.printf("%2d ", dia);
-            if ((dia + primerDiaDeLaSemana - 1) % 7 == 0) {
+            if ((dia + primerDiaDeLaSemana -1) % 7 == 0) {
                 System.out.println();
             }
         }
-
-        // Actualizar el primer día de la semana para el próximo mes
-        primerDiaDeLaSemana = (primerDiaDeLaSemana + diasEnElMes) % 7;
-        if (primerDiaDeLaSemana == 0) {
-            primerDiaDeLaSemana = 7;
-        }
-
-        // Imprimir línea en blanco entre los meses
-        System.out.println();
     }
-}
 
-public static void imprimirMes(int mes, int anio) {
-    // Calcular el día de la semana para el primer día del mes utilizando el algoritmo de congruencia de Zeller.
-    int q = 1;
-    int m = mes;
-    int k = anio % 100;
-    int j = anio / 100;
-    int h = (q + 13 * (m + 1) / 5 + k + k / 4 + j / 4 + 5 * j) % 7;
-    int primerDiaDeLaSemana = (h + 5) % 6 + 1;
+    public static void diaSemanaFecha(int dia, int mes, int año){
 
-    // Calcular el número de días en el mes utilizando una declaración switch.
-    int diasEnElMes;
-    switch (mes) {
-        case 2:
-            if (anio % 4 == 0 && (anio % 100 != 0 || anio % 400 == 0)) {
-                diasEnElMes = 29;
-            } else {
-                diasEnElMes = 28;
+        // Verifica que los valores de día, mes y año estén dentro de los rangos permitidos
+        if ((dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12) && (año >= 1000 && año <= 7999)) {
+            // Ajusta el mes y el año para enero y febrero
+            if (mes <= 2) {
+                mes += 12;
+                año -= 1;
             }
-            break;
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            diasEnElMes = 30;
-            break;
-        default:
-            diasEnElMes = 31;
-            break;
-    }
 
-    // Imprimir encabezado del mes y año
-    System.out.println(obtenerNombreDelMes(mes) + " " + anio);
+            // Calcula los valores necesarios para la fórmula de Zeller's Congruence
+            int a = año / 100;
+            int b = año % 100;
 
-    // Imprimir encabezado de los días de la semana
-    System.out.println("Do Lu Ma Mi Ju Vi Sa");
+            // Calcula el día de la semana utilizando Zeller's Congruence considerando años bisiestos
+            int d = (dia + (13 * (mes + 1)) / 5 + b + (b / 4) + (a / 4) - 2 * a) % 7;
 
-    // Imprimir espacios en blanco
-    for (int i = 1; i < primerDiaDeLaSemana; i++) {
-        System.out.print("   ");
-    }
+            String dias []= {" ","Domingo", "Lunes "," Martes "," Miercoles "," Jueves "," Viernes "," Sabado"};
+            // Ajusta el resultado para que 0 sea domingo en lugar de sábado
+            if (d < 0) {
+                d += 6;
+            }
 
-    // Imprimir días del mes
-    for (int dia = 1; dia <= diasEnElMes; dia++) {
-        System.out.printf("%2d ", dia);
-        if ((dia + primerDiaDeLaSemana -1) % 7 == 0) {
-            System.out.println();
-        }
-    }
-}
-
-public static void diaSemanaFecha(int dia, int mes, int año){
-
-    // Verifica que los valores de día, mes y año estén dentro de los rangos permitidos
-    if ((dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12) && (año >= 1000 && año <= 7999)) {
-        // Ajusta el mes y el año para enero y febrero
-        if (mes <= 2) {
-            mes += 12;
-            año -= 1;
-        }
-        
-        // Calcula los valores necesarios para la fórmula de Zeller's Congruence
-        int a = año / 100;
-        int b = año % 100;
-        
-        // Calcula el día de la semana utilizando Zeller's Congruence considerando años bisiestos
-        int d = (dia + (13 * (mes + 1)) / 5 + b + (b / 4) + (a / 4) - 2 * a) % 7;
-        
-        // Ajusta el resultado para que 0 sea domingo en lugar de sábado
-        if (d < 0) {
-            d += 6;
-        }
-        
-        // Imprime el día de la semana correspondiente llamando al metodo imprimirDiasSemanaArr()
-        System.out.print("El día es: " + imprimirDiasSemanaArr(d));
-         System.out.println(d);
-    } else {
-        System.out.println("Fecha no válida.");
-    }
-}
-
-public static int numeroDeDiasEntreDosFechas(int dia1, int mes1, int año1, int dia2, int mes2, int año2){
-    int dias = 0;
-
-    // Define un array con el número de días en cada mes
-    int[] diasPorMes = {
-        0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-    };
-
-    // Verifica si el año es bisiesto y ajusta el número de días en febrero
-    if (esAñoBisiesto(año1)) {
-        diasPorMes[2] = 29;
-    }
-
-    // Calcula el número de días desde la primera fecha hasta el final del año
-    for (int m = mes1 + 1; m <= 12; m++) {
-        dias += diasPorMes[m];
-    }
-    dias += (diasPorMes[mes1] - dia1 + 1);
-
-    // Calcula el número de días completos entre los dos años
-    for (int año = año1 + 1; año < año2; año++) {
-        if (esAñoBisiesto(año)) {
-            dias += 366;
+            // Imprime el día de la semana correspondiente llamando al metodo imprimirDiasSemanaArr()
+            System.out.print("El día es: " + dias[d]);
         } else {
-            dias += 365;
+            System.out.println("Fecha no válida.");
         }
-}
-
-
-    // Calcula el número de días desde el comienzo del año hasta la segunda fecha
-    for (int m = 1; m < mes2; m++) {
-        dias += diasPorMes[m];
-    }
-    dias += dia2;
-
-    return dias;
     }
 
-public static int diasEntreDosFechas(int dia1,int mes1,int año1,int dia2,int mes2, int año2) {
-    
-    int diasEnAño = 365;
-    int intervaloAñoBisiesto = 4;
-    int diasAñoBisiesto = 1;
-    int diasEnMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    
-    int añoInicio = año1;
-    int mesInicio = mes1;
-    int diaInicio = dia1;
+    public static int numeroDeDiasEntreDosFechas(int dia1, int mes1, int año1, int dia2, int mes2, int año2){
+        int dias = 0;
 
-    int añoFin = año2;
-    int mesFin = mes2;
-    int diaFin = dia2;
+        // Define un array con el número de días en cada mes
+        int[] diasPorMes = {
+            0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+        };
 
-    int totalDias = 0;
+        // Verifica si el año es bisiesto y ajusta el número de días en febrero
+        if (esAñoBisiesto(año1)) {
+            diasPorMes[2] = 29;
+        }
 
-        // Calcular el número de días entre el 1 de enero del año 0000 y el 1 de enero de 1996
-        for (int año = 0; año < añoInicio; año++) {
-            if (año % intervaloAñoBisiesto == 0) {
-                totalDias += diasAñoBisiesto;
+        // Calcula el número de días desde la primera fecha hasta el final del año
+        for (int m = mes1 + 1; m <= 12; m++) {
+            dias += diasPorMes[m];
+        }
+        dias += (diasPorMes[mes1] - dia1 + 1);
+
+        // Calcula el número de días completos entre los dos años
+        for (int año = año1 + 1; año < año2; año++) {
+            if (esAñoBisiesto(año)) {
+                dias += 366;
             } else {
-                totalDias += diasEnAño;
+                dias += 365;
             }
-        }
-        for (int mes = 0; mes < mesInicio - 1; mes++) {
-            totalDias += diasEnMes[mes];
-            if (mes == 1 && añoInicio % intervaloAñoBisiesto == 0) {
-                totalDias += diasAñoBisiesto;
-            }
-        }
-        totalDias += diaInicio - 1;
-
-        int diasEntre = totalDias;
-
-        // Calcular el número de días entre el 1 de enero del año 0000 y el 9 de noviembre de 2023
-        totalDias = 0;
-        for (int año = 0; año < añoFin; año++) {
-            if (año % intervaloAñoBisiesto == 0) {
-                totalDias += diasAñoBisiesto;
-            } else {
-                totalDias += diasEnAño;
-            }
-        }
-        for (int mes = 0; mes < mesFin - 1; mes++) {
-            totalDias += diasEnMes[mes];
-            if (mes == 1 && añoFin % intervaloAñoBisiesto == 0) {
-                totalDias += diasAñoBisiesto;
-            }
-        }
-        totalDias += diaFin - 1;
-
-        diasEntre = totalDias - diasEntre;
-
-        return diasEntre;
-}
-
-public static void numeroDeDiasMesesAñosEntreDosFechas(int dia1,int mes1,int año1,int dia2,int mes2, int año2) {
-
-    //Ingresando los datos de fecha inicial para comparar
-    int añoInicio = año1;
-    int mesInicio = mes1;
-    int diaInicio = dia1;
-    
-    //Ingresando los datos de fecha final para comparar
-    int añoFin = año2;
-    int mesFin = mes2;
-    int diaFin = dia2;
-
-    int diasEnAño = 365;
-    int intervaloAñoBisiesto = 4;
-    int diasAñoBisiesto = 1;
-    int diasEnMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-    int totalDias = 0;
-
-    // Calcular el número de días entre las dos fechas
-    for (int año = añoInicio; año <= añoFin; año++) {
-        int mesInicioLoop = mesInicio;
-        int mesFinLoop = 12;
-
-        if (año == añoFin) {
-            mesFinLoop = mesFin;
-        }
-
-        for (int mes = mesInicioLoop; mes <= mesFinLoop; mes++) {
-            int diaFinMes = diasEnMes[mes - 1];
-            int diaInicioLoop = diaInicio;
-
-            if (año == añoInicio && mes == mesInicio) {
-                diaInicioLoop = diaInicio;
-            }
-
-            int diaFinLoop = diaFinMes;
-
-            if (año == añoFin && mes == mesFin) {
-                diaFinLoop = diaFin;
-            }
-
-            for (int dia = diaInicioLoop; dia <= diaFinLoop; dia++) {
-                totalDias++;
-            }
-        }
-    
-        int años = totalDias / diasEnAño;
-        int meses = (totalDias % diasEnAño) / 30; // Usando un promedio de 30 días por mes
-        int dias = (totalDias % diasEnAño) % 30;
-        
-        //imprimiendo la cantidad de dias, meses, años entre las dos fechas
-        System.out.println("Entre las fechas " + diaInicio + "/" + mesInicio + "/" + añoInicio +
-                " y " + diaFin + "/" + mesFin + "/" + añoFin + " hay:");
-        System.out.println(años + " años, " + meses + " meses y " + dias + " días.");
-    }
-    
-}
-
-public static void menu(int dia, int meses, int años){
-    
-
-}
-
-
-public static void main(String[] args) {
-        //imprimirAño(2023);
-        //imprimirMes(9,2023);
-        //diaSemanaFecha(12,9,2023);
-        //System.out.println(numeroDeDiasEntreDosFechas(1,1,2023,1,12,2023));
-        //System.out.println(diasEntreDosFechas(1,1,2020,1,12,2023));
-        //numeroDeDiasMesesAñosEntreDosFechas(1,1,2020,1,12,2023);
-        
     }
 
 
+        // Calcula el número de días desde el comienzo del año hasta la segunda fecha
+        for (int m = 1; m < mes2; m++) {
+            dias += diasPorMes[m];
+        }
+        dias += dia2;
+
+        return dias;
+        }
+
+    public static int diasEntreDosFechas(int dia1,int mes1,int año1,int dia2,int mes2, int año2) {
+
+        int diasEnAño = 365;
+        int intervaloAñoBisiesto = 4;
+        int diasAñoBisiesto = 1;
+        int diasEnMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        int añoInicio = año1;
+        int mesInicio = mes1;
+        int diaInicio = dia1;
+
+        int añoFin = año2;
+        int mesFin = mes2;
+        int diaFin = dia2;
+
+        int totalDias = 0;
+
+            // Calcular el número de días entre las dos fechas elejidas por el USER
+            for (int año = 0; año < añoInicio; año++) {
+                if (año % intervaloAñoBisiesto == 0) {
+                    totalDias += diasAñoBisiesto;
+                } else {
+                    totalDias += diasEnAño;
+                }
+            }
+            for (int mes = 0; mes < mesInicio - 1; mes++) {
+                totalDias += diasEnMes[mes];
+                if (mes == 1 && añoInicio % intervaloAñoBisiesto == 0) {
+                    totalDias += diasAñoBisiesto;
+                }
+            }
+            totalDias += diaInicio - 1;
+
+            int diasEntre = totalDias;
+
+            // Calcular el número de días entre las dos fechas
+            totalDias = 0;
+            for (int año = 0; año < añoFin; año++) {
+                if (año % intervaloAñoBisiesto == 0) {
+                    totalDias += diasAñoBisiesto;
+                } else {
+                    totalDias += diasEnAño;
+                }
+            }
+            for (int mes = 0; mes < mesFin - 1; mes++) {
+                totalDias += diasEnMes[mes];
+                if (mes == 1 && añoFin % intervaloAñoBisiesto == 0) {
+                    totalDias += diasAñoBisiesto;
+                }
+            }
+            totalDias += diaFin - 1;
+
+            diasEntre = totalDias - diasEntre;
+
+            return diasEntre;
+    }
+
+    public static void numeroDeDiasMesesAñosEntreDosFechas(int dia1,int mes1,int año1,int dia2,int mes2, int año2) {
+
+        //Ingresando los datos de fecha inicial para comparar
+        int añoInicio = año1;
+        int mesInicio = mes1;
+        int diaInicio = dia1;
+
+        //Ingresando los datos de fecha final para comparar
+        int añoFin = año2;
+        int mesFin = mes2;
+        int diaFin = dia2;
+
+        int diasEnAño = 365;
+        int intervaloAñoBisiesto = 4;
+        int diasAñoBisiesto = 1;
+        int diasEnMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        int totalDias = 0;
+
+        // Calcular el número de días entre las dos fechas
+        for (int año = añoInicio; año <= añoFin; año++) {
+            int mesInicioLoop = mesInicio;
+            int mesFinLoop = 12;
+
+            if (año == añoFin) {
+                mesFinLoop = mesFin;
+            }
+
+            for (int mes = mesInicioLoop; mes <= mesFinLoop; mes++) {
+                int diaFinMes = diasEnMes[mes - 1];
+                int diaInicioLoop = diaInicio;
+
+                if (año == añoInicio && mes == mesInicio) {
+                    diaInicioLoop = diaInicio;
+                }
+
+                int diaFinLoop = diaFinMes;
+
+                if (año == añoFin && mes == mesFin) {
+                    diaFinLoop = diaFin;
+                }
+
+                for (int dia = diaInicioLoop; dia <= diaFinLoop; dia++) {
+                    totalDias++;
+                }
+            }
+
+            int años = totalDias / diasEnAño;
+            int meses = (totalDias % diasEnAño) / 30; // Usando un promedio de 30 días por mes
+            int dias = (totalDias % diasEnAño) % 30;
+
+            //imprimiendo la cantidad de dias, meses, años entre las dos fechas
+            System.out.println("Entre las fechas " + diaInicio + "/" + mesInicio + "/" + añoInicio +
+                    " y " + diaFin + "/" + mesFin + "/" + añoFin + " hay:");
+            System.out.println(años + " años, " + meses + " meses y " + dias + " días.");
+        }
+
+    }
+
+    public static String menu(){
+        String s = "===================="
+                + "\nProyecto Calendario"
+                + "\n===================="
+                + "\nElija la Opcion que desea Utilizar:\n"
+                + "\n1) Imprimir el mes de un anio \n2 Imprimir el calendario de un anio"
+                + "\n3) Imprimir dia de semana de una fecha\n4) Contar dias,meses,anios entre dos fechas"
+                + "\n5) Contar dias entre 2 afechas";
+
+        return s;
+    }
+
+    public static void menuAction(){
+        
+    //Declaramos las vareables para iterar entre el swicth
+        int opcion=0;
+        int parseUserEleccion1, dia1, mes1, anio1, dia2, mes2, anio2;
+        String userEleccion1, userEleccion2, sUser1, sUser2, sUser3, sUser4;
+        Scanner sc= new Scanner(System.in);
+    
+    //Mostramos el menu al usuario para que elija la funcion a usar en loop
+        while(opcion!=6){
+            
+        userEleccion1 = JOptionPane.showInputDialog(null, menu());
+        parseUserEleccion1 = Integer.valueOf(userEleccion1);
+        
+        switch (parseUserEleccion1){
+
+            case 1: 
+                System.out.println(" Elija el mes Ej. 12(Diciembre)");
+                mes1 = sc.nextInt();
+                System.out.println(" Elija el Año");
+                anio1= sc.nextInt();
+                System.out.println(" ");
+                imprimirMes(mes1, anio1);
+                break;   
+            case 2: 
+                System.out.println("Elija el año");
+                anio1= sc.nextInt();
+                imprimirAño(anio1);
+                break;
+            case 3: 
+                System.out.println("Elija el dia Eje. 12(dia # 12)");
+                dia1= sc.nextInt();
+                System.out.println("Elija el mes Eje. 12(Diciembre)");
+                mes1= sc.nextInt();
+                System.out.println("Elija el año");
+                anio1= sc.nextInt();
+                diaSemanaFecha(dia1,mes1,anio1);
+                break;
+            case 4: 
+                System.out.println("Elija el dia de inicio Eje. 12(dia # 12)");
+                dia1= sc.nextInt();
+                System.out.println("Elija el mes inicial Eje. 12(Diciembre)");
+                mes1= sc.nextInt();
+                System.out.println("Elija el año de inicio");
+                anio1= sc.nextInt();
+                System.out.println("Elija el dia final Eje. 12(dia # 12)");
+                dia2= sc.nextInt();
+                System.out.println("Elija el mes final Eje. 12(Diciembre)");
+                mes2= sc.nextInt();
+                System.out.println("Elija el año final");
+                anio2= sc.nextInt();
+                numeroDeDiasMesesAñosEntreDosFechas(dia1,mes1,anio1,dia2,mes2,anio2);
+                break; 
+            case 5: 
+                System.out.println("Elija el dia de inicio Eje. 12(dia # 12)");
+                dia1= sc.nextInt();
+                System.out.println("Elija el mes inicial Eje. 12(Diciembre)");
+                mes1= sc.nextInt();
+                System.out.println("Elija el año de inicio");
+                anio1= sc.nextInt();
+                System.out.println("Elija el dia final Eje. 12(dia # 12)");
+                dia2= sc.nextInt();
+                System.out.println("Elija el mes final Eje. 12(Diciembre)");
+                mes2= sc.nextInt();
+                System.out.println("Elija el año final");
+                anio2= sc.nextInt();
+                System.out.println("Han pasado: "+diasEntreDosFechas(dia1,mes1,anio1,dia2,mes2,anio2) + " dias");
+                break;  
+            case 6:
+                System.out.println("Salir");
+                break;
+        }
+            userEleccion2 = JOptionPane.showInputDialog("Deseas continuar y/n\n");
+            if(userEleccion2.equals("n")){
+                JOptionPane.showMessageDialog(null, "Gracias por usar nuestro Sistema");
+                break;}
+        }
+    }
+
+    public static void pruebas(){
+        System.out.println("Imprime el año\n");
+        imprimirAño(2023);
+        System.out.println("\nImprime mes de un año\n");
+        imprimirMes(9,2023);
+        System.out.println("\nImprime el dia de una semana en especifico\n");
+        diaSemanaFecha(12,9,2023);
+        System.out.println("\nnumero de dias entre dos fechas\n");
+        System.out.println(numeroDeDiasEntreDosFechas(1,1,2023,1,12,2023));
+        System.out.println("\nConteo de dias entre dos fechas\n");
+        System.out.println(diasEntreDosFechas(1,1,2023,1,12,2023));
+        System.out.println("\nConteo de dias, meses y años entre dos fechas\n");
+        numeroDeDiasMesesAñosEntreDosFechas(1,1,2020,1,12,2023);
+    }
+
+    public static void main(String[] args) {
+    
+    String userInit = JOptionPane.showInputDialog(null, "1) Probar programa completo\n"
+            + "2)Imprimir resultados de cada metodo");
+    int init = Integer.valueOf(userInit);
+    
+    if(init == 1 ){
+    /**
+     * El modulo menuAction ejecuta todo el programa, llamando a cada uno de los metodos 
+     * encapsulado en un swicht, y loopeado por un while, en el que la opcion 5 rompe el 
+     * ciclo y muestra un panel en pantalla de despedida, todos los procesos se 
+     * ejecutan mediante consola, 
+    */
+        menuAction();
+    }else{
+    /**
+     * El metodo pruebas, ejecuta de manera directa todos los metodos en cola, 
+     * con procesos por defecto, pasando parametros de dia, mes, anio
+    */
+        pruebas();
+    }    
+
+    }
 }
