@@ -1,0 +1,78 @@
+    public static void menuAction(){
+        
+    //Declaramos las vareables para iterar entre el swicth
+        int opcion=0;
+        int parseUserEleccion1, dia1, mes1, anio1, dia2, mes2, anio2;
+        String userEleccion1, userEleccion2, sUser1, sUser2, sUser3, sUser4;
+        Scanner sc= new Scanner(System.in);
+    
+    //Mostramos el menu al usuario para que elija la funcion a usar en loop
+        while(opcion!=6){
+            
+        userEleccion1 = JOptionPane.showInputDialog(null, menu());
+        parseUserEleccion1 = Integer.valueOf(userEleccion1);
+        
+        switch (parseUserEleccion1){
+
+            case 1: 
+                System.out.println(" Elija el mes Ej. 12(Diciembre)");
+                mes1 = sc.nextInt();
+                System.out.println(" Elija el Año");
+                anio1= sc.nextInt();
+                System.out.println(" ");
+                imprimirMes(mes1, anio1);
+                break;   
+            case 2: 
+                System.out.println("Elija el año");
+                anio1= sc.nextInt();
+                imprimirAño(anio1);
+                break;
+            case 3: 
+                System.out.println("Elija el dia Eje. 12(dia # 12)");
+                dia1= sc.nextInt();
+                System.out.println("Elija el mes Eje. 12(Diciembre)");
+                mes1= sc.nextInt();
+                System.out.println("Elija el año");
+                anio1= sc.nextInt();
+                diaSemanaFecha(dia1,mes1,anio1);
+                break;
+            case 4: 
+                System.out.println("Elija el dia de inicio Eje. 12(dia # 12)");
+                dia1= sc.nextInt();
+                System.out.println("Elija el mes inicial Eje. 12(Diciembre)");
+                mes1= sc.nextInt();
+                System.out.println("Elija el año de inicio");
+                anio1= sc.nextInt();
+                System.out.println("Elija el dia final Eje. 12(dia # 12)");
+                dia2= sc.nextInt();
+                System.out.println("Elija el mes final Eje. 12(Diciembre)");
+                mes2= sc.nextInt();
+                System.out.println("Elija el año final");
+                anio2= sc.nextInt();
+                numeroDeDiasMesesAñosEntreDosFechas(dia1,mes1,anio1,dia2,mes2,anio2);
+                break; 
+            case 5: 
+                System.out.println("Elija el dia de inicio Eje. 12(dia # 12)");
+                dia1= sc.nextInt();
+                System.out.println("Elija el mes inicial Eje. 12(Diciembre)");
+                mes1= sc.nextInt();
+                System.out.println("Elija el año de inicio");
+                anio1= sc.nextInt();
+                System.out.println("Elija el dia final Eje. 12(dia # 12)");
+                dia2= sc.nextInt();
+                System.out.println("Elija el mes final Eje. 12(Diciembre)");
+                mes2= sc.nextInt();
+                System.out.println("Elija el año final");
+                anio2= sc.nextInt();
+                System.out.println("Han pasado: "+diasEntreDosFechas(dia1,mes1,anio1,dia2,mes2,anio2) + " dias");
+                break;  
+            case 6:
+                System.out.println("Salir");
+                break;
+        }
+            userEleccion2 = JOptionPane.showInputDialog("Deseas continuar y/n\n");
+            if(userEleccion2.equals("n")){
+                JOptionPane.showMessageDialog(null, "Gracias por usar nuestro Sistema");
+                break;}
+        }
+    }
