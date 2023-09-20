@@ -1,0 +1,72 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication79;
+
+/**
+ *
+ * @author tguca-L01
+ */
+public class JavaApplication79 {
+    
+    public static void ImprimeMatriz(int[][] M) {
+            for (int l = 0; l < 3; l++) {
+                for (int a = 0; a < 3; a++) {
+                    System.out.print(M[l][a] + "\t");
+                }
+                System.out.println();
+            }
+    }
+    
+    public static int[] MatrizAArreglo(int[][] M) {
+            int[] matrizAarr = new int[9];
+            int c = 0;
+
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    matrizAarr[c] = M[i][j];
+                    c++;
+                }
+            }
+            
+            return matrizAarr;
+    }
+    
+    public static void OrdenaArreglo(int[] arr) {
+        int matriz = arr.length;
+        for (int m = 0; m < matriz - 1; m++) {
+            for (int k = 0; k < matriz - m - 1; k++) {
+                if (arr[k] > arr[k + 1]) {
+                    int temporal = arr[k];
+                    arr[k] = arr[k + 1];
+                    arr[k + 1] = temporal;
+                }
+            }
+        }
+    }
+    
+    public static void RegresarArregloAMatriz(int[] X, int[][] M) {
+        int cont = 0;
+        for (int k = 0; k < 3; k++) {
+            for (int i = 0; i < 3; i++) {
+                M[k][i] = X[cont];
+                cont++;
+            }
+        }
+    }
+    
+    
+    public static void main(String[] arg){
+        int M[][] = {{36,53,29},{48,57,20},{98,49,21}};
+        int X[] = new int[9];
+        
+        ImprimeMatriz(M);
+        X=MatrizAArreglo(M);
+        OrdenaArreglo(X);
+        RegresarArregloAMatriz(X,M);
+        System.out.println("Matriz Organizada");
+        ImprimeMatriz(M);
+    }
+}
