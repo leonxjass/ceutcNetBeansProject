@@ -86,3 +86,35 @@ public class BubbleSort {
 ```
 
 Este código ordenará la matriz utilizando el algoritmo Bubble Sort y luego imprimirá la matriz ordenada. Puedes personalizar la matriz inicial modificando el contenido de la variable `array`.
+
+
+Claro, aquí tienes un ejemplo de un método de ordenamiento Bubble Sort en Java que te permite ordenar un arreglo:
+
+```java
+public class BubbleSort {
+    public static void main(String[] args) {
+        int[] arreglo = {64, 34, 25, 12, 22, 11, 90};
+        bubbleSort(arreglo);
+        System.out.println("Arreglo ordenado:");
+        for (int i : arreglo) {
+            System.out.print(i + " ");
+        }
+    }
+
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Intercambia arr[j] y arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
+```
+
+Este código implementa el algoritmo de ordenamiento Bubble Sort para ordenar un arreglo de números enteros. Puedes reemplazar el contenido del arreglo con los valores que desees ordenar. Cuando ejecutes el programa, mostrará el arreglo ordenado.
