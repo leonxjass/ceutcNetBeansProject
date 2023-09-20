@@ -45,3 +45,44 @@ Entregamos tarea de metodos con el himno, y tarea de tabla aplicando arreglos y 
 14/09 Se elabora la version 3 del proyecto del calendario, sujeta a generar una V4 para finalizar los requerimientos de la clase
 
 */
+
+
+Claro, aquí tienes un ejemplo de un método en Java que ordena una matriz utilizando el algoritmo Bubble Sort:
+
+```java
+public class BubbleSort {
+    public static void main(String[] args) {
+        int[] array = {64, 34, 25, 12, 22, 11, 90};
+
+        System.out.println("Matriz antes de ordenar:");
+        imprimirArray(array);
+
+        bubbleSort(array);
+
+        System.out.println("\nMatriz después de ordenar:");
+        imprimirArray(array);
+    }
+
+    static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Intercambia arr[j] y arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    static void imprimirArray(int[] arr) {
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+    }
+}
+```
+
+Este código ordenará la matriz utilizando el algoritmo Bubble Sort y luego imprimirá la matriz ordenada. Puedes personalizar la matriz inicial modificando el contenido de la variable `array`.
