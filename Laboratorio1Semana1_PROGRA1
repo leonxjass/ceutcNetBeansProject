@@ -1,0 +1,88 @@
+//Definicion del objeto y su constructor, clase objeto
+package com.mycompany.tablaproductos865;
+
+/**
+ *
+ * @author Canal
+ */
+public class producto {
+    String  codProducto;
+    String  nombreProducto;
+    int     cantidad;
+    double  precio;
+    boolean grababilidad;
+    
+    /*//Definimos un constructor, esto nos sirve para saber el valor
+    default del objeto*/
+    
+    public producto(){
+    String  codProducto ="CC";
+    String  nombreProducto = "NULL";
+    int     cantidad = 00;
+    double  precio =0.0;
+    boolean grababilidad = false;
+    }
+    
+    void guardaRegistro(String cp, String np, int cn, double pr, boolean gb){
+         codProducto =cp;
+         nombreProducto = np;
+         cantidad = cn;
+         precio = pr;
+         grababilidad = gb;
+    }
+    
+    void imprimeRegistro(){
+        String f1,f2,f3,f4,f5,f;
+        f1 = "%-9s";
+        f2 = "%-18s";
+        f3 = "%-14d";
+        f4 = "%-10.2f";
+        f5 = "%-1b";
+        f = f1+f2+f3+f4+f5+"\n";
+        System.out.printf(f,codProducto,nombreProducto,cantidad
+                ,precio,grababilidad);
+    }
+}
+
+
+
+//Definicion del main del proyecto metodo main
+package com.mycompany.tablaproductos865;
+
+public class TablaProductos865 {
+    
+    public static producto p1 = new producto();
+    public static producto p2 = new producto();
+    public static producto p3 = new producto();
+    public static producto p4 = new producto();
+    public static producto p5 = new producto();
+    
+    public static void datos(){
+        p1.guardaRegistro("P01", "QUESO", 3, 47.50, false);
+        p2.guardaRegistro("P02", "PAPAS", 2, 8.45, false);
+        p3.guardaRegistro("P03", "MARGARINA", 1, 9.30, true);
+        p4.guardaRegistro("P04", "HUEVOS", 2, 45.00, false);
+        p5.guardaRegistro("P05", "CHILE(4OZ)", 3, 7.20, true);
+    }
+    
+    public static void imprimeTabla(){
+        System.out.println("CP"+"\t"+"PRODUCTO"+"\t"+"CANTIDAD"+"\t"+"PRECIO"+"\t"+"GRABABILIDAD");
+        System.out.println(line());
+            p1.imprimeRegistro();
+            p2.imprimeRegistro();
+            p3.imprimeRegistro();
+            p4.imprimeRegistro();
+            p5.imprimeRegistro();
+        System.out.println(line());
+    }
+    
+    public static String line(){
+        String b = "===============================================================";
+        return b;
+    }
+
+    public static void main(String[] args) {
+        datos();
+        imprimeTabla();
+    }
+}
