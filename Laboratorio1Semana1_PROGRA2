@@ -1,0 +1,130 @@
+/*
+======================================================
+Alumno: Anderson Leon;
+#Cuenta: 32251109;
+Asignatura: Programacion II
+Seccion: 865
+Tarea: Laboratorio 1, Semana 1
+======================================================
+*/
+
+/*Clase Objeto*/
+
+package com.mycompany.proyectosautos;
+
+/**
+ *
+ * @author leonj
+ */
+public class  autoObject {
+        String marcaDeAuto;
+    String modelDeAuto;
+    String color;
+    int anio;
+    double precio;
+    boolean stock;
+    
+    public autoObject(){    
+        String marcaDeAuto = null;
+        String modelDeAuto = null;
+        String color = "FFF";
+        int anio = 2023;
+        double precio = 00.00;
+        boolean stock = false;
+    }
+    
+    void guardarRegistros(String ma, String mda, String clr, int a, double p, boolean s){
+        marcaDeAuto = ma;
+        modelDeAuto = mda;
+        color = clr;
+        anio = a;
+        precio = p;
+        stock = s;
+    }
+    
+    void imprimirRegistros(){
+        String f1,f2,f3,f4,f5,f6,f;
+        f1 = "%-8s";
+        f2 = "%-8s";
+        f3 = "%-8.5s";
+        f4 = "%-8d";
+        f5 = "%-16.2f";
+        f6 = "%-1b";
+        f = f1+f2+f3+f4+f5+f6+"\n";
+        System.out.printf(f,marcaDeAuto,modelDeAuto,color,anio,precio,stock);
+    }
+}
+
+
+
+/*Documento Main*/
+
+package com.mycompany.proyectosautos;
+
+/**
+ *
+ * @author leonj
+ */
+public class ProyectosAutos {
+    public static autoObject a1 = new autoObject();
+    public static autoObject a2 = new autoObject();
+    public static autoObject a3 = new autoObject();
+    public static autoObject a4 = new autoObject();
+    public static autoObject a5 = new autoObject();
+    
+    public static String line(){
+        return "===============================================";
+    }
+    
+    public static void datos(){
+        a1.guardarRegistros("Honda", "Accord", "Red", 2013, 117000.5, false);
+        a2.guardarRegistros("Honda", "Breezee", "White", 2019, 100000.0, true);
+        a3.guardarRegistros("Honda", "Brio", "Black", 2015, 120000.0, true);
+        a4.guardarRegistros("Honda", "Civic", "Grey", 2020, 105000.0, false);
+        a5.guardarRegistros("Honda", "CR-V", "Dar-Red", 2018, 200000.0, true);
+    }
+    
+    public static void imprimirDatos(){
+        System.out.println("\t\tInventario de Autos Honda");
+        System.out.println(line());
+        System.out.println("MARCA\tMODELO\tCOLOR\tAÑO\t PRECIO\t\tSTOCK");
+        System.out.println(line());
+        a1.imprimirRegistros();
+        a2.imprimirRegistros();
+        a3.imprimirRegistros();
+        a4.imprimirRegistros();
+        a5.imprimirRegistros();
+        System.out.println(line());
+    }
+    
+    public static void main(String[] args) {
+        //llamamos a la funcion en donde llenamos los datos
+        datos();
+        //llamamos a la propiedad de imprimir datos ya declarados
+        imprimirDatos();
+        
+    }
+}
+
+/*Salida*/
+
+/*
+
+		Inventario de Autos Honda
+===============================================
+MARCA	MODELO	COLOR	AÑO	 PRECIO		STOCK
+===============================================
+Honda   Accord  Red     2013    117000.50       false
+Honda   Breezee White   2019    100000.00       true
+Honda   Brio    Black   2015    120000.00       true
+Honda   Civic   Grey    2020    105000.00       false
+Honda   CR-V    Dar-R   2018    200000.00       true
+===============================================
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time:  3.912 s
+Finished at: 2023-10-15T21:51:14-06:00
+------------------------------------------------------------------------
+
+*/
